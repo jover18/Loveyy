@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/office/16/null/hearts.png">
+    <title>Akira</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+    * {
+        font-family: 'Open Sans', sans-serif;
+        font-style: italic;
+    }
+    html, body{
+        margin: 0px;
+        padding: 0px;
+    }
+    .main {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url(./pic/bg.gif);
+        background-position: center;
+    }
+    #txt {
+        font-size: 35px;
+        text-align: center;
+        font-style: normal;
+    }
+    .message {
+        width: 40vw;
+        text-align: center;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #greet {
+        font-size: 13px;
+        font-style: normal;
+    }
+  .main {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 4s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+</style>
+<body onload="startTime()">
+    <div class="main">
+        <div class="warp">
+            <div id="txt"></div>
+            <br>
+            <div class="message">
+                <div id="greet"></div>
+                <div id="content"></div>
+            </div>
+            
+        </div>
+    </div>
+        
+ 
+
+
+<script>
+function startTime() {
+  var greetings = "";
+  var morningMessage = "I hope your day is okay even if it wasn't good when you woke up this morning and always remember that I am always here by your side no matter what. I love you aking tinatangi.";
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+  if (h => 0 && h < 12) {
+    greetings = "Good morning Lolove, ";
+    morningMessage = "When you open this website, panigurado tulog pa ako or nasa school na. I hope yung morning mo ngayon ay good na, I know you are very stressed with your school works but don't forget to take care of yourself habang wala pa akong sa tabi mo na dapat ako ang gagawa. Iloveyouuu aking tinatangi.";
+  } if (h >11 && h < 17) {
+    greetings = "Good afternoon, <3";
+    morningMessage = "Mahal kita palagi at lagi. Imissyouuu";
+  } if ( h > 17 && h <=23) {
+    greetings = "Good evening, <3";
+    morningMessage = "Thank you ulit sa palaging pag support at pagpapagaan ng loob ko tuwing may hindi maganda sa araw ko. ikaw yung babaeng di ko inaasahan na darating sa buhay ko at ikaw yung babaeng gusto kong maging endgame at ipunta sa harap at iharap sa Diyos."
+  }
+  if (h > 17 && h <=23) {
+    document.getElementById('greet').innerHTML = greetings;
+    document.getElementById('content').innerHTML = morningMessage;
+  } if (h => 0 && h <12) {
+    document.getElementById('greet').innerHTML = greetings;
+    document.getElementById('content').innerHTML = morningMessage;
+  }if ( h > 11 && h < 17) {
+    document.getElementById('greet').innerHTML = greetings;
+    document.getElementById('content').innerHTML = morningMessage;
+  }
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+
+</script>
+
+</body>
+</html>
